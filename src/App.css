@@ -1,0 +1,11 @@
+/* Add this to prevent content from being hidden behind the fixed header */
+.App {
+  padding-top: 200px;
+}
+
+/* For mobile */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 150px;
+  }
+}
