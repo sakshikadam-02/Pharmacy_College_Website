@@ -46,69 +46,99 @@ const Header = () => {
     },
     {
       name: 'ADMISSIONS',
-      path: '/Admissions',
-      subItem: [
-        { name: 'COURSES AVAILABLE', path: '/Admissions/institute' },
-        { name: 'INFORMATION BROUCHER', path: '/Admissions/founder' },
-        { name: "FIRST YEAR", path: '/Admissions/director' },
-        { name: 'DIRECT SECOND YEAR', path: '/Admissions/principal' },
-        
-
+      path: '/admissions',
+      subItems: [
+        { name: 'COURSES AVAILABLE', path: '/admissions/courses' },
+        { name: 'INFORMATION BROUCHER', path: '/admissions/broucher' },
+        { name: "FIRST YEAR", path: '/admissions/first-year' },
+        { name: 'DIRECT SECOND YEAR', path: '/admissions/direct-second-year' }
       ]
     },
-        {
+    {
       name: 'DEPARTMENT',
-      path: '/Departments',
-      subItem: [
-        { name: 'COMPUTER ENGINEERING', path: '/Departments/institute' },
-        { name: 'CIVIL ENGINEERING', path: '/Departments/founder' },
-        { name: "ELECTRONICS AND TELECOMMUNICATIONS", path: '/Departments/director' },
-        { name: 'MECHANICAL ENGINEERING', path: '/Departments/principal' },
-        
-
+      path: '/departments',
+      subItems: [
+        { name: 'COMPUTER ENGINEERING', path: '/departments/computer' },
+        { name: 'CIVIL ENGINEERING', path: '/departments/civil' },
+        { name: "ELECTRONICS AND TELECOMMUNICATIONS", path: '/departments/electronics' },
+        { name: 'MECHANICAL ENGINEERING', path: '/departments/mechanical' }
       ]
     },
-   {
+    {
       name: 'FACILITY',
-      path: '/Facilities',
-      subItem: [
-        { name: 'LIBRARY', path: '/Facilities/institute' },
-        { name: 'WORKSHOP', path: '/Facilities/founder' },
-        { name: "COMPUTER CENTER", path: '/Facilities/director' },       
-
+      path: '/facilities',
+      subItems: [
+        { name: 'LIBRARY', path: '/facilities/library' },
+        { name: 'WORKSHOP', path: '/facilities/workshop' },
+        { name: "COMPUTER CENTER", path: '/facilities/computer-center' }
       ]
     },
-     {
+    {
       name: 'PLACEMENT',
-      path: '/Placement',
-      subItem: [
-        { name: 'RECRUITERS', path: '/about/institute' },
-        { name: 'TRO', path: '/about/founder' },
-               
-
+      path: '/placement',
+      subItems: [
+        { name: 'RECRUITERS', path: '/placement/recruiters' },
+        { name: 'TRO', path: '/placement/tro' }
       ]
     },
-
-    { name: 'COMMITTEE', path: '/committee' },
-    { name: 'FEEDBACK', path: '/feedback' },
-    { name: 'DOWNLOADS', path: '/downloads' },
+    {
+      name: 'COMMITTEE',
+      path: '/committee',
+      subItems: [
+        { name: 'GOVERNING BOARD', path: '/committee/governing-board' },
+        { name: 'ANTI RAGING COMMITTEE', path: '/committee/anti-raging' },
+        { name: 'GRIEVENCE READDRESSER', path: '/committee/grievence' },
+        { name: 'SCST COMMITTEE', path: '/committee/scst' },
+        { name: 'INTERNAL QUALITY COMM', path: '/committee/quality' },
+        { name: 'INTERNAL COMPLAINT COMMITTEE', path: '/committee/complaint' },
+        { name: 'WOMENS GRIEVENCE', path: '/committee/womens-grievence' },
+        { name: 'STUDENTS COUNCIL', path: '/committee/students-council' }
+      ]
+    },
+    {
+      name: 'FEEDBACK',
+      path: '/feedback',
+      subItems: [
+        { name: 'AICTE STUDENT FEEDBACK', path: '/feedback/aicte-student' },
+        { name: 'AICTE FACULTY FEEDBACK', path: '/feedback/aicte-faculty' },
+        { name: 'STUDENT FEEDBACK', path: '/feedback/student' },
+        { name: 'FACULTY FEEDBACK', path: '/feedback/faculty' }
+      ]
+    },
+    {
+      name: 'DOWNLOADS',
+      path: '/downloads',
+      subItems: [
+        { name: 'SYLLABUS', path: '/downloads/syllabus' },
+        { name: 'A.Y.2024-25', path: '/downloads/ay-2024-25' },
+        { name: 'QUESTION PAPER', path: '/downloads/question-paper' }
+      ]
+    },
     { name: 'GALLERY', path: '/gallery' },
-    { name: 'ALUMINI', path: '/alumini' },
-    { name: 'CONTACT', path: '/contact' },
+    {
+      name: 'ALUMINI',
+      path: '/alumini',
+      subItems: [
+        { name: 'ALUMINI REGISTRATION FORM', path: '/alumini/registration' }
+      ]
+    },
+    { name: 'CONTACT', path: '/contact' }
   ];
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`} style={{ top: 0 }}>
-      {/* Contact Info Bar */}
-      <div className="contact-bar">
-        <div className="contact-container">
-          <span>Phone: +91 1524840058</span>
-          <span>Email: 1557principal@mstfze.ac.in</span>
-          <span>DTE Code: D2S26 | MSBTE Code: 1537</span>
-        </div>
-      </div>
+  <header className="top-header">
+  {/* Contact Info Bar */}
+  <div className="contact-bar">
+    <div className="contact-container">
+      <span>Phone: +91 1524840058</span>
+      <span>Email: 1557principal@mstfze.ac.in</span>
+      <span>DTE Code: D2S26 | MSBTE Code: 1537</span>
+    </div>
+  </div>
 
-      {/* Institute Info */}
+
+
+      {/* Institute Banner */}
       <div className="institute-banner">
         <div className="banner-content">
           <h1>Shri, Swami Samarth Bahuuddheshiya Shaikehanik</h1>
@@ -120,7 +150,7 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="navbar">
+      <nav className={`navbar ${isScrolled ? 'sticky' : ''}`}>
         <div className="nav-container">
           <button 
             className={`mobile-menu-button ${isMenuOpen ? 'open' : ''}`} 
@@ -137,8 +167,8 @@ const Header = () => {
               <li 
                 key={index}
                 className={`nav-item ${item.subItems ? 'has-dropdown' : ''} ${activeDropdown === item.name ? 'dropdown-active' : ''}`}
-                onMouseEnter={() => item.subItems && setActiveDropdown(item.name)}
-                onMouseLeave={() => item.subItems && setActiveDropdown(null)}
+                onMouseEnter={() => item.subItems && window.innerWidth > 768 && setActiveDropdown(item.name)}
+                onMouseLeave={() => item.subItems && window.innerWidth > 768 && setActiveDropdown(null)}
               >
                 <a 
                   href={item.path} 
@@ -151,8 +181,6 @@ const Header = () => {
                       closeAllMenus();
                     }
                   }}
-                  onMouseEnter={(e) => e.target.classList.add('hover')}
-                  onMouseLeave={(e) => e.target.classList.remove('hover')}
                 >
                   {item.name}
                   {item.subItems && <span className="dropdown-arrow"></span>}
@@ -167,8 +195,6 @@ const Header = () => {
                           href={subItem.path} 
                           className="dropdown-link"
                           onClick={closeAllMenus}
-                          onMouseEnter={(e) => e.target.classList.add('hover')}
-                          onMouseLeave={(e) => e.target.classList.remove('hover')}
                         >
                           {subItem.name}
                         </a>
