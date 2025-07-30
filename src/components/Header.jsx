@@ -88,17 +88,6 @@ const Header = () => {
 
       ]
     },
-        {
-      name: 'PLACEMENT',
-      path: '/Placement',
-      subItem: [
-        { name: 'RECRUITERS', path: '/about/institute' },
-        { name: 'TRO', path: '/about/founder' },
-               
-
-      ]
-    },
-
 
     { name: 'COMMITTEE', path: '/committee' },
     { name: 'FEEDBACK', path: '/feedback' },
