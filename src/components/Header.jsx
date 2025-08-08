@@ -120,7 +120,7 @@ const navigationItems = [
   return (
     <header className="relative z-50">
       {/* Top Information Bar */}
-      <div className="bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white py-1.5 relative overflow-hidden">
+      <div className="bg-gradient-to-r bg-[#2a86e9] text-white py-1.5 relative overflow-hidden">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-400 to-purple-400 animate-pulse"></div>
@@ -194,25 +194,32 @@ const navigationItems = [
             </div>
             
             {/* Center - Institute Info */}
-            <div className="flex-1 text-center mb-4 lg:mb-0">
-              <p className="text-xs text-gray-500 mb-1 animate-fade-in">
-                Shri. Swami Samarth Bahuuddheshiya Shaikshanik Samajik Sanstha & Krida Mandal's Sanstha
-              </p>
-              <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-2 animate-slide-in-left">
-                V. J. Shinde Institute of Pharmacy
-              </h1>
-              <p className="text-sm text-gray-600 mb-3 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
-                Varuda Road, Dharashiv (Osmanabad) - 413501
-              </p>
-              <div className="flex flex-wrap justify-center gap-2 animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
-                  Approved by P.C.I.
-                </span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
-                  Affiliated to M.S.B.T.E.
-                </span>
-              </div>
-            </div>
+           <div className="flex-1 text-center mb-4 lg:mb-0 px-4">
+  <p className="text-xs text-gray-500 mb-2 animate-fade-in">
+    Shri. Swami Samarth Bahuuddheshiya Shaikshanik Samajik Sanstha & Krida Mandal's Sanstha
+  </p>
+
+  <h1 className="text-4xl md:text-5xl font-extrabold mb-3 animate-slide-in-left text-[#292727] px-4 py-2 rounded leading-tight">
+    V. J. Shinde Institute of Pharmacy
+  </h1>
+
+  <p className="text-sm md:text-base text-gray-600 mb-4 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
+    Varuda Road, Dharashiv (Osmanabad) - 413501
+  </p>
+
+  <div
+    className="flex flex-wrap justify-center gap-2 animate-slide-in-left"
+    style={{ animationDelay: '0.4s' }}
+  >
+    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+      Approved by P.C.I.
+    </span>
+    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+      Affiliated to M.S.B.T.E.
+    </span>
+  </div>
+</div>
+
             
             {/* Right - Principal Info */}
              <div className="flex flex-col items-center space-y-3">
@@ -230,108 +237,96 @@ const navigationItems = [
         </div>
       
 
-      {/* Navigation Bar */}
-      <nav className={`bg-gradient-to-r from-blue-600 to-purple-600 shadow-xl w-full transition-all duration-500 ${
-        isScrolled ? 'fixed top-0 left-0 right-0 z-50' : ''
-      }`}>
-        <div className="w-full">
-          <div className="flex items-center justify-between">
-            {/* Desktop Navigation */}
-            <div className="hidden lg:grid lg:grid-cols-9 w-full">
-              {navigationItems.map((item, index) => (
-                <div key={index} className="relative group">
-                  <Link
-                    to={item.path}
-                    className={`px-1 py-4 text-white font-semibold text-xs flex flex-col items-center justify-center space-y-1 transition-all duration-300 h-full nav-item ${
-                      location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                        ? 'bg-white/20 backdrop-blur-sm'
-                        : 'hover:bg-white/10'
-                    }`}
-                    onMouseEnter={() => item.hasDropdown && setActiveDropdown(index)}
-                  >
-                    <span className="text-center leading-tight">
-                      {item.name.includes(' ') ? (
-                        <>
-                          <div className="text-xs">{item.name.split(' ')[0]}</div>
-                          <div className="text-xs">{item.name.split(' ').slice(1).join(' ')}</div>
-                        </>
-                      ) : (
-                        item.name
-                      )}
-                    </span>
-                    {item.hasDropdown && <ChevronDown className="w-3 h-3 flex-shrink-0 transition-transform group-hover:rotate-180" />}
-                  </Link>
+{/* Navigation Bar */}
+<nav className={`bg-gradient-to-r bg-[#2a86e9] shadow-md w-full transition-all duration-500 py-1 ${isScrolled ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
+  <div className="w-full">
+    <div className="flex items-center justify-between">
+      {/* Desktop Navigation */}
+      <div className="hidden lg:grid lg:grid-cols-9 w-full">
+        {navigationItems.map((item, index) => (
+          <div key={index} className="relative group">
+            <Link
+              to={item.path}
+              className={`px-2 py-2 text-white font-medium text-base flex flex-col items-center justify-center space-y-0.5 transition-all duration-300 h-full nav-item ${
+                location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+                  ? 'bg-white/20 backdrop-blur-sm'
+                  : 'hover:bg-white/10'
+              }`}
+              onMouseEnter={() => item.hasDropdown && setActiveDropdown(index)}
+            >
+              <span className="text-center leading-tight">
+                {item.name.includes(' ') ? (
+                  <>
+                    <div className="text-sm">{item.name.split(' ')[0]}</div>
+                    <div className="text-sm">{item.name.split(' ').slice(1).join(' ')}</div>
+                  </>
+                ) : (
+                  item.name
+                )}
+              </span>
+              {item.hasDropdown && (
+                <ChevronDown className="w-4 h-4 flex-shrink-0 transition-transform group-hover:rotate-180" />
+              )}
+            </Link>
 
-                  {/* Dropdown Menu */}
-                  {item.hasDropdown && activeDropdown === index && (
-                    <div
-                      className="absolute top-full left-0 bg-white shadow-2xl border border-gray-200 min-w-64 z-50 rounded-xl overflow-hidden"
-                      onMouseEnter={() => setActiveDropdown(index)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
-                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2">
-                        <h3 className="font-semibold text-sm">{item.name}</h3>
-                      </div>
-                      {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                        <Link
-                          key={dropdownIndex}
-                          to={dropdownItem.path}
-                          className="block px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-700 text-sm border-b border-gray-100 last:border-b-0 transition-all duration-200 flex items-center space-x-2"
-                        >
-                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                          <span>{dropdownItem.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all duration-300"
+            {/* Dropdown Menu */}
+            {item.hasDropdown && activeDropdown === index && (
+              <div
+                className="absolute top-full left-0 bg-white shadow-2xl border border-gray-200 min-w-64 z-50 rounded-xl overflow-hidden"
+                onMouseEnter={() => setActiveDropdown(index)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden bg-white border-t border-white/20 shadow-xl">
-              <div className="px-4 py-2 space-y-1">
-                {navigationItems.map((item, index) => (
+              <div className="bg-blue-800 text-white px-4 py-2">
+                  <h3 className="font-semibold text-base">{item.name}</h3>
+                </div>
+                {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
                   <Link
-                    key={index}
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 ${
-                      location.pathname === item.path ? 'bg-blue-50 text-blue-600' : ''
-                    }`}
-                >
-                  {item.name}
+                    key={dropdownIndex}
+                    to={dropdownItem.path}
+                    className="block px-3 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-[#fdf2f3] hover:to-[#f3e6f8] hover:text-[#5B0206] text-sm border-b border-gray-100 last:border-b-0 transition-all duration-200 flex items-center space-x-2"
+                  >
+                    <div className="w-2 h-2 bg-[#5B0206] rounded-full"></div>
+                    <span>{dropdownItem.name}</span>
                   </Link>
                 ))}
-                
-                {/* Admin Login Link */}
-                <div className="border-t border-gray-200 mt-2 pt-2">
-                  <Link
-                    to="/admin"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 flex items-center space-x-2"
-                  >
-                    <Settings className="w-4 h-4" />
-                    <span>Admin Login</span>
-                  </Link>
-                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Menu Button */}
+      <div className="lg:hidden">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="p-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all duration-300"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile Navigation */}
+    {isMobileMenuOpen && (
+      <div className="lg:hidden bg-white border-t border-white/20 shadow-xl">
+        <div className="px-4 py-2 space-y-1">
+          {navigationItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 text-base ${
+                location.pathname === item.path ? 'bg-blue-50 text-blue-600' : ''
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
-      </nav>
+      </div>
+    )}
+  </div>
+</nav>
     </header>
   );
 };

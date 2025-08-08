@@ -160,96 +160,9 @@ const AdminOverview = () => {
         </div>
       </div>
 
-      {/* Recent Activities */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-800">Recent Activities</h2>
-          <Link to="/admin/activities" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-            View All
-          </Link>
-        </div>
-        <div className="space-y-4">
-          {recentActivities.map((activity) => {
-            const IconComponent = activity.icon;
-            return (
-              <div key={activity.id} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <div className={`w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm`}>
-                  <IconComponent className={`w-5 h-5 ${activity.color}`} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium text-gray-800">{activity.title}</h3>
-                  <p className="text-sm text-gray-600">{activity.description}</p>
-                  <p className="text-xs text-gray-500 mt-1">{activity.time}</p>
-                </div>
-                <div className="flex space-x-2">
-                  <button className="p-1 text-gray-400 hover:text-blue-600 transition-colors">
-                    <Eye className="w-4 h-4" />
-                  </button>
-                  <button className="p-1 text-gray-400 hover:text-green-600 transition-colors">
-                    <Edit className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    
 
-      {/* System Status */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">System Status</h3>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Website Status</span>
-              <span className="flex items-center text-green-600">
-                <CheckCircle className="w-4 h-4 mr-1" />
-                Online
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Database</span>
-              <span className="flex items-center text-green-600">
-                <CheckCircle className="w-4 h-4 mr-1" />
-                Connected
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Storage</span>
-              <span className="flex items-center text-orange-600">
-                <AlertCircle className="w-4 h-4 mr-1" />
-                75% Used
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Last Backup</span>
-              <span className="text-gray-600">2 hours ago</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">Quick Stats</h3>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Total Students</span>
-              <span className="font-semibold text-gray-800">120</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Faculty Members</span>
-              <span className="font-semibold text-gray-800">15</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Active Courses</span>
-              <span className="font-semibold text-gray-800">2</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">This Month Visitors</span>
-              <span className="font-semibold text-gray-800">1,250</span>
-            </div>
-          </div>
-        </div>
-      </div>
+     
     </div>
   );
 };

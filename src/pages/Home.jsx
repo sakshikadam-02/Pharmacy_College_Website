@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Star, ChevronLeft, ChevronRight, Award, Users, BookOpen, 
+import {
+  Star, ChevronLeft, ChevronRight, Award, Users, BookOpen,
   GraduationCap, Building, Library, Coffee, Calendar, Clock,
   TrendingUp, CheckCircle, AlertCircle, Info, ArrowRight,
   MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin,
@@ -300,7 +300,7 @@ const Home = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     // Auto-advance hero slides
     const slideInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -332,7 +332,7 @@ const Home = () => {
   return (
     <div className={`min-h-screen ${isVisible ? 'fade-in' : ''}`}>
       {/* Sliding Notifications Bar */}
-     <div className="bg-gradient-to-r from-[#5B0206] to-[#8E24AA] text-white py-1.5 overflow-hidden relative">
+      <div className="bg-gradient-to-r bg-[#2a86e9] text-white py-1.5 overflow-hidden relative">
 
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center space-x-3">
@@ -343,7 +343,7 @@ const Home = () => {
               })()}
             </div>
             <div className="flex-1 text-center overflow-hidden">
-              <div 
+              <div
                 className="transition-all duration-1000 ease-in-out transform flex"
                 style={{ transform: `translateX(-${currentNotification * 100}%)` }}
               >
@@ -361,9 +361,8 @@ const Home = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentNotification(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentNotification ? 'bg-white' : 'bg-white/50'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentNotification ? 'bg-white' : 'bg-white/50'
+                    }`}
                 />
               ))}
             </div>
@@ -386,29 +385,29 @@ const Home = () => {
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
+
 
 
         {/* Hero Content */}
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              
+
               {/* Text Content */}
               <div className="text-white space-y-6 slide-in-left">
-                
+
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   {heroSlides[currentSlide].title}
                 </h1>
-                
+
                 <h2 className="text-xl md:text-2xl text-yellow-300 font-semibold">
                   {heroSlides[currentSlide].subtitle}
                 </h2>
-                
+
                 <p className="text-lg text-white/90 leading-relaxed">
                   {heroSlides[currentSlide].description}
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link to="/admissions/d-pharmacy" className="btn-primary inline-flex items-center justify-center">
                     Apply Now
@@ -424,7 +423,7 @@ const Home = () => {
               <div className="relative slide-in-right">
                 <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
                   {/* Image Container */}
-                  <div 
+                  <div
                     className="w-full h-full transition-all duration-1000 ease-in-out transform"
                     style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                   >
@@ -451,12 +450,12 @@ const Home = () => {
                               if (fallback) fallback.style.display = 'flex';
                             }}
                           />
-                          
+
                           {/* Gradient Overlay for better text readability */}
                           <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/40 rounded-2xl"></div>
-                          
 
-                          
+
+
                           {/* Fallback for missing images */}
                           <div className="hidden w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl items-center justify-center">
                             <div className="text-center text-white">
@@ -474,7 +473,7 @@ const Home = () => {
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Navigation Arrows */}
                   <button
                     onClick={prevSlide}
@@ -489,18 +488,17 @@ const Home = () => {
                     <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
                   </button>
                 </div>
-                
+
                 {/* Slide Indicators */}
                 <div className="flex justify-center space-x-2 mt-6">
                   {heroSlides.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentSlide 
-                          ? 'bg-white scale-125' 
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                          ? 'bg-white scale-125'
                           : 'bg-white/50 hover:bg-white/75'
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -528,129 +526,129 @@ const Home = () => {
       </section>
 
       {/* Latest Circular & Upcoming Events Section */}
-   <section className="py-16 bg-white">
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      
-      {/* Latest Circular */}
-      <div className="card hover-lift">
-        <div className="bg-gradient-to-r from-[#5B0206] to-[#b70ae7] text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
-          <h3 className="text-xl font-bold flex items-center">
-            <FileText className="w-6 h-6 mr-3" />
-            Latest Circular
-          </h3>
-        </div>
-        <div className="space-y-4 max-h-80 overflow-y-auto">
-          {circulars.map((circular, index) => (
-            <div
-              key={index}
-              className="group/item p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#5B0206] to-[#b70ae7] rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
-                  <FileText className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-gray-800 mb-2 group-hover/[#5B0206] transition-colors">
-                    {circular.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 mb-2 line-clamp-2">
-                    {circular.snippet}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-orange-600 font-medium">
-                      {circular.date}
-                    </span>
-                    <div className="flex space-x-2">
-                      <button className="p-1 text-gray-400 hover:text-[#5B0206] transition-colors">
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button className="p-1 text-gray-400 hover:text-green-600 transition-colors">
-                        <Download className="w-4 h-4" />
-                      </button>
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            {/* Latest Circular */}
+            <div className="card hover-lift">
+              <div className="bg-gradient-to-r bg-blue-800 text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
+                <h3 className="text-xl font-bold flex items-center">
+                  <FileText className="w-6 h-6 mr-3" />
+                  Latest Circular
+                </h3>
+              </div>
+              <div className="space-y-4 max-h-80 overflow-y-auto ">
+                {circulars.map((circular, index) => (
+                  <div
+                    key={index}
+                    className="group/item p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r bg-[#297dd6] rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                        <FileText className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-800 mb-2 group-hover/[#5B0206] transition-colors">
+                          {circular.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                          {circular.snippet}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-orange-600 font-medium">
+                            {circular.date}
+                          </span>
+                          <div className="flex space-x-2">
+                            <button className="p-1 text-gray-400 hover:text-[#2a2929] transition-colors">
+                              <Eye className="w-4 h-4" />
+                            </button>
+                            <button className="p-1 text-gray-400 hover:text-green-600 transition-colors">
+                              <Download className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <button className="w-full bg-gradient-to-r bg-blue-800 text-white py-3 px-6 rounded-lg font-semibold bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  VIEW ALL
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <button className="w-full bg-gradient-to-r from-[#5B0206] to-[#b70ae7] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#4a0104] hover:to-[#a70ae0] transition-all duration-300 transform hover:scale-105 shadow-lg">
-            VIEW ALL
-          </button>
-        </div>
-      </div>
 
-      {/* Upcoming Events */}
-      <div className="card hover-lift">
-        <div className="bg-gradient-to-r from-[#5B0206] to-[#b70ae7] text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
-          <h3 className="text-xl font-bold flex items-center">
-            <Calendar className="w-6 h-6 mr-3" />
-            Upcoming Events
-          </h3>
-        </div>
-        <div className="space-y-4 max-h-80 overflow-y-auto">
-          {upcomingEvents.map((event, index) => (
-            <div
-              key={index}
-              className="group/item p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="flex items-start space-x-4">
-                {/* Date Block */}
-                <div className="w-16 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex flex-col items-center justify-center text-white font-bold flex-shrink-0 group-hover/item:scale-110 transition-transform relative">
-                  <div className="absolute top-1 left-1 w-1 h-1 bg-black rounded-full opacity-50"></div>
-                  <div className="absolute top-1 right-1 w-1 h-1 bg-black rounded-full opacity-50"></div>
-                  <div className="text-lg leading-tight">{event.date}</div>
-                  <div className="text-xs leading-tight">{event.month}</div>
-                  <div className="w-full bg-blue-800 text-center text-xs py-1 mt-1">
-                    {event.year}
-                  </div>
-                </div>
+            {/* Upcoming Events */}
+            <div className="card hover-lift">
+              <div className="bg-gradient-to-r bg-blue-800 text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
+                <h3 className="text-xl font-bold flex items-center">
+                  <Calendar className="w-6 h-6 mr-3" />
+                  Upcoming Events
+                </h3>
+              </div>
+              <div className="space-y-4 max-h-80 overflow-y-auto">
+                {upcomingEvents.map((event, index) => (
+                  <div
+                    key={index}
+                    className="group/item p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <div className="flex items-start space-x-4">
+                      {/* Date Block */}
+                      <div className="w-16 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex flex-col items-center justify-center text-white font-bold flex-shrink-0 group-hover/item:scale-110 transition-transform relative">
+                        <div className="absolute top-1 left-1 w-1 h-1 bg-black rounded-full opacity-50"></div>
+                        <div className="absolute top-1 right-1 w-1 h-1 bg-black rounded-full opacity-50"></div>
+                        <div className="text-lg leading-tight">{event.date}</div>
+                        <div className="text-xs leading-tight">{event.month}</div>
+                        <div className="w-full bg-blue-800 text-center text-xs py-1 mt-1">
+                          {event.year}
+                        </div>
+                      </div>
 
-                {/* Event Details */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-gray-800 mb-1 group-hover/item:text-blue-600 transition-colors">
-                    {event.title}
-                  </h4>
-                  {event.subtitle && (
-                    <p className="text-sm text-gray-500 mb-2 italic">
-                      {event.subtitle}
-                    </p>
-                  )}
-                  <p className="text-sm text-gray-600 mb-2 line-clamp-2">
-                    {event.description}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <div className="flex items-center space-x-4">
-                      <span className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {event.time}
-                      </span>
-                      <span className="flex items-center">
-                        <MapPin className="w-3 h-3 mr-1" />
-                        {event.location}
-                      </span>
+                      {/* Event Details */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-800 mb-1 group-hover/item:text-blue-600 transition-colors">
+                          {event.title}
+                        </h4>
+                        {event.subtitle && (
+                          <p className="text-sm text-gray-500 mb-2 italic">
+                            {event.subtitle}
+                          </p>
+                        )}
+                        <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                          {event.description}
+                        </p>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <div className="flex items-center space-x-4">
+                            <span className="flex items-center">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {event.time}
+                            </span>
+                            <span className="flex items-center">
+                              <MapPin className="w-3 h-3 mr-1" />
+                              {event.location}
+                            </span>
+                          </div>
+                          <button className="p-1 text-gray-400 hover:text-blue-600 transition-colors">
+                            <ExternalLink className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <button className="p-1 text-gray-400 hover:text-blue-600 transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
                   </div>
-                </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <button className="w-full bg-gradient-to-r bg-blue-800 text-white py-3 px-6 rounded-lg font-semibold bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  VIEW ALL
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <button className="w-full bg-gradient-to-r from-[#5B0206] to-[#b70ae7] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#4a0104] hover:to-[#a70ae0] transition-all duration-300 transform hover:scale-105 shadow-lg">
-            VIEW ALL
-          </button>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
+      </section>
 
 
       {/* Notice Board Section */}
@@ -658,8 +656,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="card hover-lift">
-             <div className="bg-gradient-to-r from-[#5B0206] to-[#8E24AA] text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
-
+               <div className="bg-blue-800 text-white px-6 py-4 rounded-t-xl -mt-6 -mx-6 mb-6">
                 <h3 className="text-xl font-bold flex items-center">
                   <AlertCircle className="w-6 h-6 mr-3" />
                   Notice Board
@@ -673,16 +670,15 @@ const Home = () => {
                       <div className={`w-12 h-12 bg-gradient-to-r ${notice.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform`}>
                         <AlertCircle className="w-6 h-6 text-white" />
                       </div>
-                      
+
                       {/* Notice Details */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-semibold text-gray-800 group-hover/item:text-blue-600 transition-colors">
                             {notice.title}
                           </h4>
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            notice.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                          }`}>
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${notice.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                            }`}>
                             {notice.status}
                           </span>
                         </div>
@@ -709,7 +705,7 @@ const Home = () => {
                 ))}
               </div>
               <div className="mt-6 pt-4 border-t border-gray-200">
-               <button className="w-full bg-gradient-to-r from-[#5B0206] to-[#8E24AA] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#6B0A0E] hover:to-[#9C27B0] transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <button className="w-full  bg-blue-800 text-white py-3 px-6 rounded-lg font-semibold  transition-all duration-300 transform hover:scale-105 shadow-lg">
                   VIEW ALL NOTICES
                 </button>
               </div>
@@ -739,7 +735,7 @@ const Home = () => {
         </div>
       </section>
 
-     
+
 
       {/* Facilities Section */}
       <section className="py-16 bg-white">
@@ -794,7 +790,7 @@ const Home = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="cta-section">
+      {/* <section className="cta-section">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Journey?</h2>
@@ -811,7 +807,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -65,9 +65,9 @@ const AdminLogin = () => {
       <div className="max-w-md w-full">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          {/* <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
             <Building className="w-10 h-10 text-white" />
-          </div>
+          </div> */}
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Admin Login</h1>
           <p className="text-gray-600">V. J. Shinde Institute of Pharmacy</p>
         </div>
@@ -154,14 +154,14 @@ const AdminLogin = () => {
             </button>
           </form>
 
-          {/* Demo Credentials Hint */}
+          {/* Demo Credentials Hint
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <h3 className="text-sm font-medium text-blue-800 mb-2">Demo Credentials:</h3>
             <div className="text-xs text-blue-700 space-y-1">
               <p><strong>Username:</strong> admin</p>
               <p><strong>Password:</strong> admin123</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Back to Home */}
           <div className="mt-6 text-center">
